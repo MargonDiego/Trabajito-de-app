@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const interventionController_1 = require("../controllers/interventionController");
+const router = (0, express_1.Router)();
+router.get('/interventions', interventionController_1.getAllInterventions);
+router.get('/interventions/:id', interventionController_1.getInterventionById);
+router.post('/interventions', interventionController_1.createIntervention);
+router.put('/interventions/:id', interventionController_1.updateIntervention);
+router.delete('/interventions/:id', interventionController_1.deleteIntervention);
+router.get('/students/:studentId/interventions', interventionController_1.getInterventionsByStudent);
+router.post('/interventions/:id/comments', interventionController_1.addInterventionComment);
+router.get('/interventions/:id/comments', interventionController_1.getInterventionComments);
+router.put('/interventions/:id/comments/:commentId', interventionController_1.updateInterventionComment);
+router.delete('/interventions/:id/comments/:commentId', interventionController_1.deleteInterventionComment);
+exports.default = router;
